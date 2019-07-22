@@ -6,16 +6,14 @@ import MealRepository from './MealRepository';
 class MealStore {
     @observable meals=[];
 
-    @action async getSchoolMeal(){
+    @action async getSchoolMeal() {
         try {
             const data = await MealRepository.getSchoolMeal();
-            console.log(data);
-            this.meals = data;
-            console.log(this.meals);
+            this.meals = data.data.menu;
         } catch (err) {
             console.log(err);
         }
     }
-}
+}   
 
 export default MealStore;
