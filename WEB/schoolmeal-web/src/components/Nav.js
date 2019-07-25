@@ -5,7 +5,6 @@ const Nav = () => {
     return (
         <div>
             <Link to="/">메인</Link>
-            <Link to="login">로그인</Link>
         </div>
     );
 };

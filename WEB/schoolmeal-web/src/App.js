@@ -1,8 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Nav from './components/Nav';
-import Main from './pages/Main/Main';
-import Login from './pages/Login/Login';
+import MainTemplate from './pages/Main/MainTemplate';
 
 const App = () => {
   return (
@@ -10,8 +9,7 @@ const App = () => {
       <div>
         <Nav/>
         <Switch>
-          <Route exact path="/" component={Main}/>
-          <Route path="/login" component={Login}/>
+          <Route exact path="/" component={MainTemplate}/>
         </Switch>
       </div>
     </Router>
