@@ -5,4 +5,44 @@
 
 .mealList{
     background-color: #858585;
+    padding: 50px;
+    display: flex;
+    width: 96%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    &--search{
+        background: none;
+        border: 3px solid #fff;
+        border-radius: 5px;
+        color: #fff;
+        display: block;
+        font-size: 1.6em;
+        font-weight: bold;
+        margin: 1em auto;
+        padding: 0.8em 4em;
+        position: relative;
+        text-transform: uppercase;
+        outline: 0;
+    }
+    &--searchBox{
+      background-color: none;
+      background: none;
+      border: 3px solid #fff;
+      border-radius: 5px;
+      color: #fff;
+      display: block;
+      font-size: 1.6em;
+      font-weight: bold;
+      margin: 1em auto;
+      padding: 1.5em 5em;
+      position: relative;
+      text-transform: uppercase;
+      outline: 0;
+    }
+    &--search:hover{
+        
+    }
 }

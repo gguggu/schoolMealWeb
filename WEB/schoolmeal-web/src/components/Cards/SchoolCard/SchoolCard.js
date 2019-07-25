@@ -5,8 +5,9 @@ const SchoolCard = ({ schoolData, school }) => {
 
     const sendingSchoolCode = async() => {
         const schoolCode = schoolData.code;
-        console.log(schoolCode);
-        await school.getSchoolMeal(schoolCode);
+        const schoolType = schoolData.type;
+        console.log(schoolCode, schoolType);
+        await school.getSchoolMeal(schoolCode, schoolType);
     }
 
     return (

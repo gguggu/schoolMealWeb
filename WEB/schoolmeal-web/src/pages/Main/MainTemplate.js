@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { inject } from 'mobx-react';
+import Modal from 'react-modal';
 import './MainTemplate.scss';   
 import MainList from '../../components/Lists/MainList/MainList';
 import MainCard from '../../components/Cards/MainCard/MainCard';
-import Modal from 'react-modal';
 import SchoolCard from '../../components/Cards/SchoolCard/SchoolCard';
 import SchoolList from '../../components/Lists/SchoolList/SchoolList';
 
@@ -79,13 +79,12 @@ class Main extends Component {
         console.log(mealList);
         return (
             <div className="mealList">
-                <button onClick={() => this.gettingSchool()}>Search</button>
-                <input type="text" onChange={(e) => this.inputingSchool(e)}/>
+                <input type="text" className="mealList--searchBox" onChange={(e) => this.inputingSchool(e)}/>
+                <button onClick={() => this.gettingSchool()} className="mealList--search">Search</button>
                 <Modal
                      isOpen={this.state.modalIsOpen}
                      onRequestClose={this.closeModal}
                      style={customStyles}
-                     contentLabel="Example Modal"
                 >
                     <SchoolList 
                         schoolList={schoolList}

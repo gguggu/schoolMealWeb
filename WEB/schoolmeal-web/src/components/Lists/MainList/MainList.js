@@ -5,7 +5,6 @@ const MainList = ({ mealList }) => {
     return (
         <div>
             {mealList}
-            hello mainlist
         </div>
     );
 };

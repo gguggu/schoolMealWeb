@@ -6,10 +6,12 @@ import MealRepository from './MealRepository';
 class MealStore {
     @observable meals=[];
     @observable schoolData=[];
+    @observable modalIsOpen=false;
+    @observable importing=false;
 
-    @action async getSchoolMeal(code) {
+    @action async getSchoolMeal(code, type) {
         try {
-            const data = await MealRepository.getSchoolMeal(code);
+            const data = await MealRepository.getSchoolMeal(code, type);
             this.meals = data.data.menu;
         } catch (err) {
             console.log(err);
@@ -20,6 +22,7 @@ class MealStore {
         try {
             const data = await MealRepository.getSchoolName(name);
             this.schoolData = data.data.school_infos;
+            this.modalIsOpen=false;
             console.log(data);
             console.log(this.schoolData);
         } catch (err) {

@@ -1,9 +1,9 @@
 import axios from 'axios';
 
 class MealRepository {
-    async getSchoolMeal(schoolCode) {
+    async getSchoolMeal(schoolCode, schoolType) {
         try {
-            return await axios.get(`https://schoolmenukr.ml/api/high/${schoolCode}`).then(res=>{
+            return await axios.get(`https://schoolmenukr.ml/api/${schoolType}/${schoolCode}`).then(res=>{
                 return res;
             })
         } catch (err) {
