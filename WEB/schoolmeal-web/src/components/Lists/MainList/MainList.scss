@@ -1,0 +1,39 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.MainList{
+    display: flex;
+    width: 96%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    &--month{
+        border: 3px solid #fff;
+        padding: 1em;
+        margin: 10px;
+        border-radius: 5px;
+    }
+    &--main{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        &--arrowBack, &--arrowForward{
+            display: flex;
+            width: 5%;
+            height: auto;
+            flex-direction: column;
+        }
+        &--mainContents{
+            display: flex;
+            width: 1600px;
+            height: auto;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}

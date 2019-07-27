@@ -18,7 +18,7 @@ const customStyles = {
     }
   };
 
-  Modal.setAppElement('#root');
+Modal.setAppElement('#root');
 
 @inject('store')
 class Main extends Component {
@@ -60,11 +60,11 @@ class Main extends Component {
         }
     }
      
-      closeModal = () => {
-        this.setState({
-            modalIsOpen: false
-        });
-      }
+    closeModal = () => {
+    this.setState({
+        modalIsOpen: false
+    });
+    }
 
     render() {
         const { store } = this.props;
@@ -80,7 +80,7 @@ class Main extends Component {
         return (
             <div className="mealList">
                 <input type="text" className="mealList--searchBox" onChange={(e) => this.inputingSchool(e)}/>
-                <button onClick={() => this.gettingSchool()} className="mealList--search">Search</button>
+                <button onClick={() => this.gettingSchool()} className="mealList--search"><p>Search</p></button>
                 <Modal
                      isOpen={this.state.modalIsOpen}
                      onRequestClose={this.closeModal}

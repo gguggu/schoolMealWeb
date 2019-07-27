@@ -1,6 +1,7 @@
 *{
     padding: 0;
     margin: 0;
+    overflow: hidden;
 }
 
 .mealList{
@@ -8,7 +9,7 @@
     padding: 50px;
     display: flex;
     width: 96%;
-    height: auto;
+    height: 63.8em;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -26,6 +27,15 @@
         position: relative;
         text-transform: uppercase;
         outline: 0;
+        &:hover{
+            // .mealList--search{
+            //     color: #242424;
+            // }
+            // &>p{
+            //     transform: scale(1.2);
+            //     transition: all ease 0.2s;
+            // }
+        }
     }
     &--searchBox{
       background-color: none;
@@ -39,10 +49,12 @@
       margin: 1em auto;
       padding: 1.5em 5em;
       position: relative;
-      text-transform: uppercase;
       outline: 0;
     }
-    &--search:hover{
-        
+    
+    .mealList--search>p{
+        transform: scale(1.0);
+        transition: all ease 0.2s;
+        color: #fff;
     }
 }
