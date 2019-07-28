@@ -2,7 +2,6 @@ import React from 'react';
 import './MainList.scss';
 import moment from 'moment';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
-import { now } from 'moment';
 
 const MainList = ({ mealList }) => {
     const [card, setCard] = React.useState(1);
