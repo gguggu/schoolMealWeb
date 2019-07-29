@@ -1,18 +1,46 @@
 import React from 'react';
 import './MainList.scss';
-import moment from 'moment';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 
 const MainList = ({ mealList }) => {
     const [card, setCard] = React.useState(1);
+    // let howMonth = parseInt(moment().locale('ko').format('M'));
     console.log(mealList);
+    // console.log(howMonth);
     return (
         <div className="MainList">
-            <div className="MainList--month">
-                <p>{moment().locale('ko').format('M')}월</p>
-            </div>
+            {/* <div className="MainList--month">
+                <IoIosArrowBack size="10px" onClick={() => {
+                    if(howMonth === 1){
+                        return;
+                    }
+                    howMonth -= 1;
+                    console.log(howMonth);
+                }}
+                className="MainList--month--arrowBack"
+                >
+                </IoIosArrowBack>
+                <p>{howMonth}월</p>
+                <IoIosArrowForward size="10px" onClick={() => {
+                    if(howMonth * 1 >= 12){
+                        return;
+                    }
+                    howMonth += 1;
+                    console.log(howMonth);
+                }}
+                className="MainList--month--arrowForward"
+                >
+                </IoIosArrowForward>
+            </div> */}
             <div className="MainList--main">
-                <IoIosArrowBack size="1em" onClick={() => {
+                <div className="MainList--main--leftContents">
+                    {
+                        card === 1
+                        ? (console.log('1번!'))
+                        : (mealList[card-2])
+                    }
+                </div>
+                <IoIosArrowBack size="10px" onClick={() => {
                     if(card === 1){
                         return;
                     }
@@ -22,9 +50,9 @@ const MainList = ({ mealList }) => {
                 >
                 </IoIosArrowBack>
                 <div className="MainList--main--mainContents">
-                    {mealList.slice((card - 1) * 1, (card - 1) * 1 + 1)}
+                    {mealList.slice((card - 1), (card - 1) + 1)}
                 </div>
-                <IoIosArrowForward size="1em" onClick={() => {
+                <IoIosArrowForward size="10px" onClick={() => {
                     if(card * 1 >= mealList.length){
                         return;
                     }
@@ -33,6 +61,9 @@ const MainList = ({ mealList }) => {
                 className="MainList--main--arrowForward"
                 >
                 </IoIosArrowForward>
+                <div className="MainList--main--rightContents">
+                    {mealList[card]}
+                </div>
             </div>
         </div>
     );

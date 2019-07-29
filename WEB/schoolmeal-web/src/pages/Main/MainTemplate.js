@@ -6,6 +6,7 @@ import MainList from '../../components/Lists/MainList/MainList';
 import MainCard from '../../components/Cards/MainCard/MainCard';
 import SchoolCard from '../../components/Cards/SchoolCard/SchoolCard';
 import SchoolList from '../../components/Lists/SchoolList/SchoolList';
+import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 
 const customStyles = {
     content : {
@@ -27,12 +28,11 @@ class Main extends Component {
         this.state={
             schoolName: "",
             importing: false,
-            modalIsOpen: false
+            modalIsOpen: false,
         };
     }
 
     inputingSchool = (e) => {
-        console.log(e.target.value);
         let name = e.target.value;
         this.setState({
             schoolName: name
@@ -50,9 +50,9 @@ class Main extends Component {
                 })
             }
             else{
-                const data = school.schoolData[0].code;
-                console.log(data);
-                await school.getSchoolMeal(data);
+                const codeData = school.schoolData[0].code;
+                const typeData = school.schoolData[0].type;
+                await school.getSchoolMeal(codeData, typeData);
                 this.setState({
                     importing: true
                 })
@@ -69,14 +69,11 @@ class Main extends Component {
     render() {
         const { store } = this.props;
         const mealList = store.meal.meals.map((data, i) => {
-            console.log(data);
             return <MainCard mealData={data} key={i}/>
         });
         const schoolList = store.meal.schoolData.map((data, i) => {
-            console.log(data);
-            return <SchoolCard schoolData={data} school={this.props.store.meal} key={i}/>
+            return <SchoolCard schoolData={data} school={this.props.store.meal} closeModal={this.closeModal} key={i}/>
         })
-        console.log(mealList);
         return (
             <div className="mealList">
                 <input type="text" className="mealList--searchBox" onChange={(e) => this.inputingSchool(e)}/>
@@ -90,6 +87,30 @@ class Main extends Component {
                         schoolList={schoolList}
                     />
                 </Modal>
+                <div className="mealList--month">
+                    <IoIosArrowBack size="10px" onClick={() => {
+                        if(store.meal.howMonth === 1){
+                            return;
+                        }
+                        store.meal.howMonth -= 1;
+                        this.gettingSchool();
+                    }}
+                    className="mealList--month--arrowBack"
+                    >
+                    </IoIosArrowBack>
+                    <p>{store.meal.howMonth}월</p>
+                    <IoIosArrowForward size="10px" onClick={() => {
+                        if(store.meal.howMonth * 1 >= 12){
+                            return;
+                        }
+                        store.meal.howMonth += 1;
+                        this.gettingSchool();
+
+                    }}
+                    className="mealList--month--arrowForward"
+                    >
+                    </IoIosArrowForward>
+                </div>
                 <MainList
                     mealList={mealList}
                 />

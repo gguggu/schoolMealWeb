@@ -1,6 +1,7 @@
 import { autobind } from 'core-decorators';
 import { action, observable } from 'mobx';
 import MealRepository from './MealRepository';
+import moment from 'moment';
 
 @autobind
 class MealStore {
@@ -8,10 +9,11 @@ class MealStore {
     @observable schoolData=[];
     @observable modalIsOpen=false;
     @observable importing=false;
+    @observable howMonth=parseInt(moment().locale('ko').format('M'));
 
     @action async getSchoolMeal(code, type) {
         try {
-            const data = await MealRepository.getSchoolMeal(code, type);
+            const data = await MealRepository.getSchoolMeal(code, type, this.howMonth);
             this.meals = data.data.menu;
         } catch (err) {
             console.log(err);

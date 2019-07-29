@@ -37,6 +37,24 @@
             // }
         }
     }
+    &--month{
+        display: flex;
+        padding: 1em;
+        margin: 10px;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        &--arrowBack, &--arrowForward{
+            display: flex;
+            width: 5%;
+            height: auto;
+            flex-direction: column;
+        }
+        &>p{
+            border: 3px solid #fff;
+            border-radius: 5px;
+        }
+    }
     &--searchBox{
       background-color: none;
       background: none;
