@@ -25,6 +25,7 @@ class MealStore {
             const data = await MealRepository.getSchoolName(name);
             this.schoolData = data.data.school_infos;
             this.modalIsOpen=false;
+            this.importing=true;
             console.log(data);
             console.log(this.schoolData);
         } catch (err) {

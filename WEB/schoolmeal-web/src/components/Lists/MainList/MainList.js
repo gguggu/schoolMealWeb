@@ -4,9 +4,7 @@ import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 
 const MainList = ({ mealList }) => {
     const [card, setCard] = React.useState(1);
-    // let howMonth = parseInt(moment().locale('ko').format('M'));
     console.log(mealList);
-    // console.log(howMonth);
     return (
         <div className="MainList">
             {/* <div className="MainList--month">
@@ -36,11 +34,11 @@ const MainList = ({ mealList }) => {
                 <div className="MainList--main--leftContents">
                     {
                         card === 1
-                        ? (console.log('1번!'))
+                        ? (console.log('아무것도 아님!'))
                         : (mealList[card-2])
                     }
                 </div>
-                <IoIosArrowBack size="10px" onClick={() => {
+                <IoIosArrowBack size="1em" onClick={() => {
                     if(card === 1){
                         return;
                     }
@@ -52,7 +50,7 @@ const MainList = ({ mealList }) => {
                 <div className="MainList--main--mainContents">
                     {mealList.slice((card - 1), (card - 1) + 1)}
                 </div>
-                <IoIosArrowForward size="10px" onClick={() => {
+                <IoIosArrowForward size="1em" onClick={() => {
                     if(card * 1 >= mealList.length){
                         return;
                     }

@@ -5,7 +5,7 @@
 
 .MainList{
     display: flex;
-    width: 96%;
+    width: 100%;
     height: auto;
     justify-content: center;
     align-items: center;
@@ -21,9 +21,13 @@
             height: auto;
             flex-direction: column;
         }
+        &--leftContents, &--rightContents{
+            width: 200px;
+            height: 250px;
+        }
         &--mainContents{
             display: flex;
-            width: 1600px;
+            width: 500px;
             height: auto;
             flex-direction: column;
             justify-content: center;

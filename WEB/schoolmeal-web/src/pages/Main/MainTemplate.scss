@@ -7,7 +7,7 @@
 .mealList{
     background-color: #858585;
     padding: 50px;
-    display: flex;
+    display: ruby-base;
     width: 96%;
     height: 63.8em;
     justify-content: center;
@@ -49,10 +49,12 @@
             width: 5%;
             height: auto;
             flex-direction: column;
+            margin: 20px;
         }
         &>p{
             border: 3px solid #fff;
             border-radius: 5px;
+            padding: 5px;
         }
     }
     &--searchBox{

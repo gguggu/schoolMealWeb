@@ -88,32 +88,45 @@ class Main extends Component {
                     />
                 </Modal>
                 <div className="mealList--month">
-                    <IoIosArrowBack size="10px" onClick={() => {
+                    <IoIosArrowBack size="1em" onClick={() => {
                         if(store.meal.howMonth === 1){
                             return;
                         }
                         store.meal.howMonth -= 1;
-                        this.gettingSchool();
+                        console.log(store.meal.howMonth);
+                        if(store.meal.importing===true){
+                            this.gettingSchool();
+                        }
+                        this.setState({
+                            importing: false
+                        })
                     }}
                     className="mealList--month--arrowBack"
                     >
                     </IoIosArrowBack>
                     <p>{store.meal.howMonth}월</p>
-                    <IoIosArrowForward size="10px" onClick={() => {
+                    <IoIosArrowForward size="1em" onClick={() => {
                         if(store.meal.howMonth * 1 >= 12){
                             return;
                         }
                         store.meal.howMonth += 1;
-                        this.gettingSchool();
-
+                        console.log(store.meal.howMonth);
+                        if(store.meal.importing===true){
+                            this.gettingSchool();
+                        }
+                        this.setState({
+                            importing: false
+                        })
                     }}
                     className="mealList--month--arrowForward"
                     >
                     </IoIosArrowForward>
                 </div>
-                <MainList
-                    mealList={mealList}
-                />
+                <div className="mealList--mainList">
+                    <MainList
+                        mealList={mealList}
+                    />
+                </div>
             </div>
         );
     }
