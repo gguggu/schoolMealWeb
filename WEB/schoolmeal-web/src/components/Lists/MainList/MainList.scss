@@ -1,3 +1,5 @@
+$whiteColor: #F2F2F2;
+
 *{
     padding: 0;
     margin: 0;
@@ -6,32 +8,34 @@
 .MainList{
     display: flex;
     width: 100%;
-    height: auto;
     justify-content: center;
-    align-items: center;
     flex-direction: column;
     &--main{
         display: flex;
-        flex-direction: row;
         justify-content: center;
-        align-items: center;
         &--arrowBack, &--arrowForward{
-            display: flex;
-            width: 5%;
+            transition: all 1s;
+            width: 4em;
             height: auto;
-            flex-direction: column;
+            color: $whiteColor;
         }
+        // &--arrowBack{
+        //     &:active{
+        //         .MainList--main--rightContents{
+        //             transform: translateX(300px);
+        //         }
+        //     }
+        // }
         &--leftContents, &--rightContents{
-            width: 200px;
-            height: 250px;
+            width: 30em;
+        }
+        &--leftContents, &--rightContents, &--mainContents{
+            transition: transform 0.5s ease;
         }
         &--mainContents{
             display: flex;
-            width: 500px;
-            height: auto;
-            flex-direction: column;
+            width: 30em;
             justify-content: center;
-            align-items: center;
         }
     }
 }

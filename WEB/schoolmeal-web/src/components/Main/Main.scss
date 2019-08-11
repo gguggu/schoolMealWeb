@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap&subset=korean');
+$borderColor: #242424;
+$whiteColor: #F2F2F2;
+
+*{
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    font-family: 'Do Hyeon', sans-serif;
+}
+
+.mealList{
+    background: url('../../images/급식\ 배경.png') no-repeat;
+    padding: 50px;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+    flex-wrap: wrap;
+    &--inputElement{
+        display: inline-flex;
+        align-items: center;
+        margin-left: 5em;
+        &--searchBox{
+            background: none;
+            color: $borderColor;
+            font-size: 1.6em;
+            outline: 0;
+            border-radius: 5px;
+            border: 8px solid $borderColor;
+            padding: 0.3em;
+          }
+        &--search{
+            margin: 1em;
+            &:hover{
+                cursor: pointer;
+            }
+        }
+    }
+    &--body{
+        margin: 0;
+        margin-top: 6em;
+        &--month{
+            display: flex;
+            padding: 1em;
+            margin: 1em;
+            margin-bottom: 3em;
+            justify-content: center;
+            align-items: center;
+            &--arrowBack, &--arrowForward{
+                width: 3em;
+                height: auto;
+                margin: 20px;
+                color: $whiteColor;
+                cursor: pointer;
+            }
+            &>p{
+                border: 3px solid $whiteColor;
+                border-radius: 5px;
+                padding: 5px;
+                font-size: 2.5em;
+            }
+        }
+    }
+}

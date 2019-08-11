@@ -1,3 +1,6 @@
+$cardColor: #FF8855;
+$contentColor: #F2F2F2;
+
 *{
     padding: 0;
     margin: 0;
@@ -5,13 +8,16 @@
 
 .MainCard{
     display: flex;
-    width: 50%;
-    height: auto;
-    flex-direction: row;
+    width: 60%;
+    height: 23em;
     flex-wrap: wrap;
     margin: 50px;
-    background-color: #424242;
-
+    padding: 10px;
+    background-color: $cardColor;
+    border-radius: 10px;
+    box-shadow: 0 0 10px $cardColor;
+    justify-content: center;
+    align-items: center;
     &--mealDate{
         
     }
@@ -30,5 +36,5 @@
 }
 
 p{
-    color: #fafafa;
+    color: $contentColor;
 }
