@@ -13,11 +13,17 @@ const customStyles = {
     right: 'auto',
     bottom: 'auto',
     marginRight: '-50%',
-    transform: 'translate(-50%, -50%)'
+    height: '50em',
+    transform: 'translate(-50%, -50%)',
+    backgroundColor: '#F25E5E',
+    borderRadius: '10px',
+    boxShadow: '0 0 15px #424242',
+    border: '0',
+    outline: '0',
   }
 };
 
-const Main = ({ inputingSchool, gettingSchool, closeModal, mealList, schoolList, store, modalIsOpen }) => {
+const Main = ({ inputingSchool, gettingSchool, closeModal, gettingMonthMeal, mealList, schoolList, store, modalIsOpen }) => {
   return (
     <div className="mealList">
     <div className="mealList--inputElement">
@@ -42,7 +48,7 @@ const Main = ({ inputingSchool, gettingSchool, closeModal, mealList, schoolList,
               store.meal.howMonth -= 1;
               console.log(store.meal.howMonth);
               if(store.meal.importing===true){
-                  gettingSchool()
+                gettingMonthMeal();
               }
           }}
           className="mealList--body--month--arrowBack"
@@ -56,7 +62,7 @@ const Main = ({ inputingSchool, gettingSchool, closeModal, mealList, schoolList,
               store.meal.howMonth += 1;
               console.log(store.meal.howMonth);
               if(store.meal.importing===true){
-                  gettingSchool()
+                gettingMonthMeal();
               }
           }}
           className="mealList--body--month--arrowForward"

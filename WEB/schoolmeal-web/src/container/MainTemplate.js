@@ -39,11 +39,24 @@ class MainTemplate extends Component {
                 const codeData = school.schoolData[0].code;
                 const typeData = school.schoolData[0].type;
                 await school.getSchoolMeal(codeData, typeData);
+                await school.putNowSchoolData(codeData, typeData);
                 this.setState({
-                    importing: true
+                    modalIsOpen: false
                 })
             }
         }
+    }
+
+    gettingMonthMeal = async() => {
+        const meal = this.props.store.meal;
+        const code = meal.nowSchoolData.code;
+        const type = meal.nowSchoolData.type;
+        console.log('정채연 예뻥', code, type);
+
+        await meal.getSchoolMeal(code, type);
+        this.setState({
+            modalIsOpen: false
+        })
     }
      
     closeModal = () => {
@@ -65,6 +78,7 @@ class MainTemplate extends Component {
             inputingSchool={this.inputingSchool}
             gettingSchool={this.gettingSchool}
             closeModal={this.closeModal}
+            gettingMonthMeal={this.gettingMonthMeal}
             mealList={mealList}
             schoolList={schoolList}
             store={store}
