@@ -9,8 +9,7 @@ $contentColor: #F2F2F2;
 .MainCard{
     display: flex;
     width: 60%;
-    height: 23em;
-    flex-wrap: wrap;
+    height: 25em;
     margin: 50px;
     padding: 10px;
     background-color: $cardColor;
@@ -18,8 +17,21 @@ $contentColor: #F2F2F2;
     box-shadow: 0 0 10px $cardColor;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    &--mealBreakfast,
+    &--mealLunch,
+    &--mealDinner {
+        display: inline-block;
+        width: 14em;
+        height: auto;
+        margin: 1em;
+        &--time{
+            font-size: 1.5em;
+        }
+    }
+
     &--mealDate{
-        
+        font-size: 1.5em;
     }
 
     &--mealBreakfast{

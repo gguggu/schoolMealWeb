@@ -1,13 +1,25 @@
+$whiteColor: #F2F2F2;
+$darkWhiteColor: #ECEAEA;
+$backColor: #424242;
+
 .SchoolCard{
-    display: flex;
-    width: 96%;
-    height: 120;
-    margin: 30px;
+    display: grid;
+    width: 80%;
+    margin: 20px 30px;
     justify-content: center;
     align-items: center;
+    background-color: $whiteColor;
+    border-radius: 10px;
+    outline: 0;
+    border: 0;
     &--contents{
-        color: #424242;
+        color: $backColor;
         font-size: 20px;
         font-weight: bold;
+    }
+    &:hover{
+        background-color: $darkWhiteColor;
+        box-shadow: 0 0 10px #424242;
+        cursor: pointer;
     }
 }
