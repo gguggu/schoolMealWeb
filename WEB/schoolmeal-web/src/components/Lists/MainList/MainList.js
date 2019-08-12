@@ -11,7 +11,7 @@ const MainList = ({ mealList }) => {
                 <div className="MainList--main--leftContents">
                     {
                         card === 1
-                        ? (console.log('아무것도 아님!'))
+                        ? (console.log(''))
                         : (mealList[card-2])
                     }
                 </div>

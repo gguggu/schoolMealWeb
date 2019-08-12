@@ -1,9 +1,10 @@
 import React from 'react';
+import './SchoolList.scss';
 
 const SchoolList = ({ schoolList }) => {
     console.log(schoolList);
     return (
-        <div>
+        <div className="SchoolList">
             {schoolList}
         </div>
     );
