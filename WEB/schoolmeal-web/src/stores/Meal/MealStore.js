@@ -39,7 +39,6 @@ class MealStore {
             // address: '',
             // name: '',
         }
-        console.log('풋나우스쿨데타', this.nowSchoolData);
     }
 }   
 

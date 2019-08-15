@@ -4,6 +4,7 @@ import Modal from 'react-modal';
 import MainCard from '../components/Cards/MainCard/MainCard';
 import SchoolCard from '../components/Cards/SchoolCard/SchoolCard';
 import Main from '../components/Main/Main';
+import Swal from 'sweetalert2'
 
 Modal.setAppElement('#root');
 
@@ -35,7 +36,7 @@ class MainTemplate extends Component {
                     modalIsOpen: true
                 })
             }
-            else{
+            else if(school.schoolData.length === 1) {
                 const codeData = school.schoolData[0].code;
                 const typeData = school.schoolData[0].type;
                 await school.getSchoolMeal(codeData, typeData);
@@ -44,6 +45,9 @@ class MainTemplate extends Component {
                     modalIsOpen: false
                 })
             }
+        } else {
+            // alert('검색한 학교가 없어요!');
+            Swal.fire('검색한 학교가 없어요!');
         }
     }
 
@@ -51,7 +55,6 @@ class MainTemplate extends Component {
         const meal = this.props.store.meal;
         const code = meal.nowSchoolData.code;
         const type = meal.nowSchoolData.type;
-        console.log('정채연 예뻥', code, type);
 
         await meal.getSchoolMeal(code, type);
         this.setState({

@@ -4,14 +4,13 @@ import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 
 const MainList = ({ mealList }) => {
     const [card, setCard] = React.useState(1);
-    console.log(mealList);
     return (
         <div className="MainList">
             <div className="MainList--main">
                 <div className="MainList--main--leftContents">
                     {
                         card === 1
-                        ? (console.log(''))
+                        ? (<></>)
                         : (mealList[card-2])
                     }
                 </div>
