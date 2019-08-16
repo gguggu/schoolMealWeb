@@ -14,7 +14,6 @@ class MealRepository {
     async getSchoolName(name) {
         try {
             return await axios.get(`https://code.schoolmenukr.ml/api?q=${name}`).then(res=>{
-                console.log(res);
                 return res;
             })
         } catch (err) {
