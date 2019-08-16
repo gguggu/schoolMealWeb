@@ -46,7 +46,6 @@ class MainTemplate extends Component {
                 })
             }
         } else {
-            // alert('검색한 학교가 없어요!');
             Swal.fire('검색한 학교가 없어요!');
         }
     }
