@@ -1,4 +1,5 @@
 $whiteColor: #F2F2F2;
+$arrowActiveColor: #424242;
 
 *{
     padding: 0;
@@ -20,23 +21,31 @@ $whiteColor: #F2F2F2;
             color: $whiteColor;
             cursor: pointer;
         }
-        // &--arrowBack{
-        //     &:active{
-        //         .MainList--main--rightContents{
-        //             transform: translateX(300px);
-        //         }
-        //     }
-        // }
-        &--leftContents, &--rightContents{
-            width: 30em;
+        &--arrowBack{
+            transition: transform 0.5s;
+            &:active{
+                transform: translateX(1em);
+                color: $arrowActiveColor;
+            }
+        }
+        &--arrowForward{
+            transition: transform 0.5s;
+            &:active{
+                transform: translateX(-1em);
+                color: $arrowActiveColor;
+                .MainList--main--mainContents{
+                    transform: translateX(-5em);
+                }
+            }
+            
         }
         &--leftContents, &--rightContents, &--mainContents{
-            transition: transform 0.5s ease;
-        }
-        &--mainContents{
             display: flex;
-            width: 30em;
+            width: 32em;
             justify-content: center;
         }
+        // &--mainContents{
+        //     transform:scale(1.2);
+        // }
     }
 }
