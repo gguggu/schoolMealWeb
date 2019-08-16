@@ -26,6 +26,7 @@ const customStyles = {
 const Main = ({ inputingSchool, gettingSchool, closeModal, gettingMonthMeal, mealList, schoolList, store, modalIsOpen }) => {
   return (
     <div className="mealList">
+      <p className="mealList--title">급식!소식!</p>
     <div className="mealList--inputElement">
         <input type="text" className="mealList--inputElement--searchBox" placeholder="학교 이름을 입력하세요." onChange={inputingSchool}/>
         <GoSearch onClick={gettingSchool} size="2em" className="mealList--inputElement--search"/>

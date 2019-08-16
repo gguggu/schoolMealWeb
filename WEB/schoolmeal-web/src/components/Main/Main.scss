@@ -1,21 +1,33 @@
 @import url('https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap&subset=korean');
-$borderColor: #242424;
+$borderColor: #F25E5E;
 $whiteColor: #F2F2F2;
+$placeHolderColor: #F25E5E7A;
 
 *{
     padding: 0;
     margin: 0;
     overflow: hidden;
     font-family: 'Do Hyeon', sans-serif;
+    user-select: none;
+}
+
+::placeholder{
+    color: $placeHolderColor;
 }
 
 .mealList{
-    background: url('../../images/급식\ 배경.png') no-repeat;
+    background: url('../../images/급식\ 배경.png') no-repeat center center fixed;
+    background-size: cover;
     padding: 50px;
     width: 100vw;
     height: 100vh;
     flex-direction: column;
     flex-wrap: wrap;
+    &--title{
+        color: $borderColor;
+        font-size: 3em;
+        margin-left: 2.8em;
+    }
     &--inputElement{
         display: inline-flex;
         align-items: center;
@@ -31,6 +43,7 @@ $whiteColor: #F2F2F2;
           }
         &--search{
             margin: 1em;
+            color: $borderColor;
             &:hover{
                 cursor: pointer;
             }
@@ -38,7 +51,7 @@ $whiteColor: #F2F2F2;
     }
     &--body{
         margin: 0;
-        margin-top: 6em;
+        margin-top: 2em;
         &--month{
             display: flex;
             padding: 1em;
@@ -51,7 +64,18 @@ $whiteColor: #F2F2F2;
                 height: auto;
                 margin: 20px;
                 color: $whiteColor;
+                transition: transform 0.5s;
                 cursor: pointer;
+            }
+            &--arrowBack{
+                &:active{
+                    transform: translateX(1em);
+                }
+            }
+            &--arrowForward{
+                &:active{
+                    transform: translateX(-1em);
+                }
             }
             &>p{
                 border: 3px solid $whiteColor;
