@@ -1,5 +1,6 @@
 import React from 'react';
 import './MainCard.scss';
+import PropTypes from 'prop-types';
 
 const MainCard = ({ mealData }) => {
     return (
@@ -35,5 +36,9 @@ const MainCard = ({ mealData }) => {
         </div>
     );
 };
+
+// MainCard.propTypes = {
+//     mealData: PropTypes.array
+// }
 
 export default MainCard;

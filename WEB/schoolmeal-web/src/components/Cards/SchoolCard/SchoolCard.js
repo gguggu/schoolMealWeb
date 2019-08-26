@@ -1,5 +1,6 @@
 import React from 'react';
 import './SchoolCard.scss';
+import { PropTypes } from 'mobx-react';
 
 const SchoolCard = ({ schoolData, school, closeModal }) => {
     
@@ -30,5 +31,11 @@ const SchoolCard = ({ schoolData, school, closeModal }) => {
         </button>
     );
 };
+
+// SchoolCard.propTypes = {
+//     schoolData: PropTypes.object,
+//     school: PropTypes.store,
+//     closeModal: PropTypes.func
+// }
 
 export default SchoolCard;
