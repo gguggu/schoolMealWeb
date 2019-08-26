@@ -28,68 +28,68 @@ const Main = ({ inputingSchool, gettingSchool, closeModal, gettingMonthMeal, mea
   return (
     <div className="mealList">
       <p className="mealList--title">급식!소식!</p>
-    <div className="mealList--inputElement">
-        <input type="text" className="mealList--inputElement--searchBox" placeholder="학교 이름을 입력하세요." onChange={inputingSchool}/>
-        <GoSearch onClick={gettingSchool} size="2em" className="mealList--inputElement--search"/>
-    </div>
-    <Modal
-         isOpen={modalIsOpen}
-         onRequestClose={closeModal}
-         style={customStyles}
-    >
-     {
-        store.meal.isLoad === true ? (
-          <SchoolList 
-            schoolList={schoolList}
-          />
-        ) : (
-          <Loader/>
-        )
-     }
-    </Modal>
-    <div className="mealList--body">
-      <div className="mealList--body--month">
-        {
-          mealList.length !== 0 ? (
-            <>
-            <IoIosArrowBack onClick={() => {
-                if(store.meal.howMonth === 1){
-                    return;
-                }
-                store.meal.howMonth -= 1;
-                console.log(store.meal.howMonth);
-                if(store.meal.importing===true){
-                  gettingMonthMeal();
-                }
-            }}
-            className="mealList--body--month--arrowBack"
-            >
-            </IoIosArrowBack>
-            <p>{store.meal.howMonth}월</p>
-            <IoIosArrowForward onClick={() => {
-                if(store.meal.howMonth * 1 >= 12){
-                    return;
-                }
-                store.meal.howMonth += 1;
-                console.log(store.meal.howMonth);
-                if(store.meal.importing===true){
-                  gettingMonthMeal();
-                }
-            }}
-            className="mealList--body--month--arrowForward"
-            >
-            </IoIosArrowForward>
-            </>
+      <div className="mealList--inputElement">
+          <input type="text" className="mealList--inputElement--searchBox" placeholder="학교 이름을 입력하세요." onChange={inputingSchool}/>
+          <GoSearch onClick={gettingSchool} size="2em" className="mealList--inputElement--search"/>
+      </div>
+      <Modal
+          isOpen={modalIsOpen}
+          onRequestClose={closeModal}
+          style={customStyles}
+      >
+      {
+          store.meal.isLoad === true ? (
+            <SchoolList 
+              schoolList={schoolList}
+            />
           ) : (
-            <></>
+            <Loader/>
           )
-        }
-      </div>
-      <div className="mealList--body--mainList">
-          <MainList
-              mealList={mealList}
-          />
-      </div>
+      }
+      </Modal>
+      <div className="mealList--body">
+        <div className="mealList--body--month">
+          {
+            mealList.length !== 0 ? (
+              <>
+              <IoIosArrowBack onClick={() => {
+                  if(store.meal.howMonth === 1){
+                      return;
+                  }
+                  store.meal.howMonth -= 1;
+                  console.log(store.meal.howMonth);
+                  if(store.meal.importing===true){
+                    gettingMonthMeal();
+                  }
+              }}
+              className="mealList--body--month--arrowBack"
+              >
+              </IoIosArrowBack>
+              <p>{store.meal.howMonth}월</p>
+              <IoIosArrowForward onClick={() => {
+                  if(store.meal.howMonth * 1 >= 12){
+                      return;
+                  }
+                  store.meal.howMonth += 1;
+                  console.log(store.meal.howMonth);
+                  if(store.meal.importing===true){
+                    gettingMonthMeal();
+                  }
+              }}
+              className="mealList--body--month--arrowForward"
+              >
+              </IoIosArrowForward>
+              </>
+            ) : (
+              <></>
+            )
+          }
+        </div>
+        <div className="mealList--body--mainList">
+            <MainList
+                mealList={mealList}
+            />
+        </div>
     </div>
 </div>
   );
