@@ -10,11 +10,16 @@ class MealStore {
     @observable nowSchoolData={};
     @observable importing=false;
     @observable howMonth=parseInt(moment().locale('ko').format('M'));
+    @observable isLoad=false; //false가 로딩 true가 로딩아님
 
     @action async getSchoolMeal(code, type) {
         try {
             const data = await MealRepository.getSchoolMeal(code, type, this.howMonth);
-            this.meals = data.data.menu;
+            console.log(data.data.menu);
+            if(data.data.menu){
+                this.isLoad = true;
+                this.meals = data.data.menu;
+            }
         } catch (err) {
             console.log(err);
         }
@@ -23,8 +28,11 @@ class MealStore {
     @action async getSchoolName(name) {
         try {
             const data = await MealRepository.getSchoolName(name);
-            this.schoolData = data.data.school_infos;
-            this.importing=true;
+            if(data.data.school_infos){
+                this.schoolData = data.data.school_infos;
+                this.isLoad=true;
+                this.importing=true;
+            }
         } catch (err) {
             console.log(err);
         }

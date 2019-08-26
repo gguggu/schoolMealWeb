@@ -5,6 +5,7 @@ import Modal from 'react-modal';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import { GoSearch } from 'react-icons/go';
 import SchoolList from '../Lists/SchoolList/SchoolList';
+import Loader from '../Loader/Loader';
 
 const customStyles = {
   content : {
@@ -36,39 +37,53 @@ const Main = ({ inputingSchool, gettingSchool, closeModal, gettingMonthMeal, mea
          onRequestClose={closeModal}
          style={customStyles}
     >
-        <SchoolList 
+     {
+        store.meal.isLoad === true ? (
+          <SchoolList 
             schoolList={schoolList}
-        />
+          />
+        ) : (
+          <Loader/>
+        )
+     }
     </Modal>
     <div className="mealList--body">
       <div className="mealList--body--month">
-          <IoIosArrowBack onClick={() => {
-              if(store.meal.howMonth === 1){
-                  return;
-              }
-              store.meal.howMonth -= 1;
-              console.log(store.meal.howMonth);
-              if(store.meal.importing===true){
-                gettingMonthMeal();
-              }
-          }}
-          className="mealList--body--month--arrowBack"
-          >
-          </IoIosArrowBack>
-          <p>{store.meal.howMonth}월</p>
-          <IoIosArrowForward onClick={() => {
-              if(store.meal.howMonth * 1 >= 12){
-                  return;
-              }
-              store.meal.howMonth += 1;
-              console.log(store.meal.howMonth);
-              if(store.meal.importing===true){
-                gettingMonthMeal();
-              }
-          }}
-          className="mealList--body--month--arrowForward"
-          >
-          </IoIosArrowForward>
+        {
+          mealList.length !== 0 ? (
+            <>
+            <IoIosArrowBack onClick={() => {
+                if(store.meal.howMonth === 1){
+                    return;
+                }
+                store.meal.howMonth -= 1;
+                console.log(store.meal.howMonth);
+                if(store.meal.importing===true){
+                  gettingMonthMeal();
+                }
+            }}
+            className="mealList--body--month--arrowBack"
+            >
+            </IoIosArrowBack>
+            <p>{store.meal.howMonth}월</p>
+            <IoIosArrowForward onClick={() => {
+                if(store.meal.howMonth * 1 >= 12){
+                    return;
+                }
+                store.meal.howMonth += 1;
+                console.log(store.meal.howMonth);
+                if(store.meal.importing===true){
+                  gettingMonthMeal();
+                }
+            }}
+            className="mealList--body--month--arrowForward"
+            >
+            </IoIosArrowForward>
+            </>
+          ) : (
+            <></>
+          )
+        }
       </div>
       <div className="mealList--body--mainList">
           <MainList
