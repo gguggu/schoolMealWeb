@@ -14,10 +14,11 @@ $arrowActiveColor: #424242;
     &--main{
         display: flex;
         justify-content: center;
+        align-items: center;
         &--arrowBack, &--arrowForward{
             transition: all 1s;
             width: 4em;
-            height: auto;
+            height: 4em;
             color: $whiteColor;
             cursor: pointer;
         }

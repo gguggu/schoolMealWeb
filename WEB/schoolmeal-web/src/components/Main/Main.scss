@@ -11,41 +11,47 @@ $placeHolderColor: #F25E5E7A;
     user-select: none;
 }
 
+html{
+    width: 100vw;
+    height: 100vh;
+    background: url('../../images/급식\ 배경.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
 ::placeholder{
     color: $placeHolderColor;
 }
 
 .mealList{
-    background: url('../../images/급식\ 배경.png') no-repeat center center fixed;
-    background-size: cover;
+   
     padding: 50px;
-    width: 100vw;
-    height: 100vh;
-    flex-direction: column;
+    height: 100%;
     flex-wrap: wrap;
-    &--title{
-        color: $borderColor;
-        font-size: 3em;
-        margin-left: 2.8em;
-    }
-    &--inputElement{
-        display: inline-flex;
-        align-items: center;
-        margin-left: 5em;
-        &--searchBox{
-            background: none;
+    &--head{
+        &--title{
             color: $borderColor;
-            font-size: 1.6em;
-            outline: 0;
-            border-radius: 5px;
-            border: 8px solid $borderColor;
-            padding: 0.3em;
-            }
-            &--search{
-            margin: 1em;
-            color: $borderColor;
-            &:hover{
-                cursor: pointer;
+            font-size: 3em;
+            margin-left: 2.8em;
+        }
+        &--inputElement{
+            display: inline-flex;
+            align-items: center;
+            margin-left: 5em;
+            &--searchBox{
+                background: none;
+                color: $borderColor;
+                font-size: 1.6em;
+                outline: 0;
+                border-radius: 5px;
+                border: 8px solid $borderColor;
+                padding: 0.3em;
+                }
+                &--search{
+                margin: 1em;
+                color: $borderColor;
+                &:hover{
+                    cursor: pointer;
+                }
             }
         }
     }
@@ -84,5 +90,43 @@ $placeHolderColor: #F25E5E7A;
                 font-size: 2.5em;
             }
         }
+    }
+}
+
+@media all and (min-width: 468px) and (max-width: 1444px) {
+    $borderColor: #FFF5F5;
+    $placeHolderColor: #F1E7EC;
+
+    ::placeholder{
+        color: $placeHolderColor;
+    }
+
+    .mealList{
+        &--head{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            &--title{
+                color: $borderColor;
+                margin: 0;
+            }
+            &--inputElement{
+                margin-left: 3.5em;
+                &--searchBox{
+                    color: $borderColor;
+                    border: 8px solid $borderColor;
+                }
+                &--search{
+                    color: $borderColor;
+                }
+            }
+        }
+    }
+}
+
+@media all and (max-height: 876px){
+    html{
+        overflow-y: scroll;
     }
 }
