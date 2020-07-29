@@ -1,41 +1,29 @@
 import React from 'react';
 import './SchoolCard.scss';
-import { PropTypes } from 'mobx-react';
+import  PropTypes  from 'prop-types';
 
-const SchoolCard = ({ schoolData, school, closeModal }) => {
-    
-    const sendingSchoolCode = async() => {
-        const schoolCode = schoolData.code;
-        const schoolType = schoolData.type;
-        console.log(schoolCode, schoolType);
-        await school.putNowSchoolData(schoolCode, schoolType);
-        await school.getSchoolMeal(schoolCode, schoolType);
-        closeModal();
-    }
+const SchoolCard = ({ schoolData, sendSchoolCode }) => {
+    const { address, name, type } = schoolData;
 
     return (
-        <button className="SchoolCard" onClick={() => {
-            sendingSchoolCode();
-        }}>
-            <p className="SchoolCard--contents">학교이름: {schoolData.name}&nbsp;</p>
+        <div className="SchoolCard" onClick={() => sendSchoolCode(schoolData)}>
+            <div className="SchoolCard--contents">학교이름: {name}</div>
             {
                 (() => {
-                    if(schoolData.type === 'elementary'){return <p className="SchoolCard--contents">학교유형: 초등학교&nbsp;</p>}
-                    else if(schoolData.type === 'middle'){return <p className="SchoolCard--contents">학교유형: 중학교&nbsp;</p>}
-                    else if(schoolData.type === 'high'){return <p className="SchoolCard--contents">학교유형: 고등학교&nbsp;</p>}
-                    else if(schoolData.type === 'special'){return <p className="SchoolCard--contents">학교유형: 특수학교&nbsp;</p>}
-                    else{return <p className="SchoolCard--contents">학교유형: X&nbsp;</p>}
+                    if(type === 'elementary'){return <div className="SchoolCard--contents">학교유형: 초등학교</div>}
+                    else if(type === 'middle'){return <div className="SchoolCard--contents">학교유형: 중학교</div>}
+                    else if(type === 'high'){return <div className="SchoolCard--contents">학교유형: 고등학교</div>}
+                    else if(type === 'special'){return <div className="SchoolCard--contents">학교유형: 특수학교</div>}
                 })()
             }
-            <p className="SchoolCard--contents">학교주소: {schoolData.address}&nbsp;</p>
-        </button>
+            <div className="SchoolCard--contents">학교주소: {address}</div>
+        </div>
     );
 };
 
-// SchoolCard.propTypes = {
-//     schoolData: PropTypes.object,
-//     school: PropTypes.store,
-//     closeModal: PropTypes.func
-// }
+SchoolCard.propTypes = {
+    schoolData: PropTypes.object.isRequired,
+    sendSchoolCode: PropTypes.func.isRequired
+};
 
 export default SchoolCard;

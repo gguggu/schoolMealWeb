@@ -1,25 +1,26 @@
-$whiteColor: #F2F2F2;
 $darkWhiteColor: #ECEAEA;
 $backColor: #424242;
 
 .SchoolCard{
-    display: grid;
-    width: 80%;
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    min-width: 400px;
+    height: 100px;
     margin: 20px 30px;
     justify-content: center;
-    align-items: center;
-    background-color: $whiteColor;
-    border-radius: 10px;
-    outline: 0;
-    border: 0;
+    background-color: $darkWhiteColor;
+    border-radius: 3px;
+    padding: 5px;
     &--contents{
+        width: auto;
         color: $backColor;
         font-size: 20px;
         font-weight: bold;
+        margin: 3px 0;
     }
     &:hover{
-        background-color: $darkWhiteColor;
-        box-shadow: 0 0 10px #424242;
+        box-shadow: 0 0 3px .5px $backColor;
         cursor: pointer;
     }
 }
