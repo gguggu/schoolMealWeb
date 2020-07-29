@@ -3,7 +3,7 @@ import axios from 'axios';
 class MealRepository {
     async getSchoolMeal(schoolCode, schoolType, month) {
         try {
-            return await axios.get(`https://schoolmenukr.ml/api/${schoolType}/${schoolCode}?month=${month}&hideAllergy=true`).then(res=>{
+            return await axios.get(`https://schoolmenukr.ml/api/${schoolType}/${schoolCode}?month=${month}&allergy=hidden`).then(res=>{
                 return res;
             })
         } catch (err) {
@@ -13,7 +13,7 @@ class MealRepository {
 
     async getSchoolName(name) {
         try {
-            return await axios.get(`https://code.schoolmenukr.ml/api?q=${name}`).then(res=>{
+            return await axios.get(`https://schoolmenukr.ml/code/api?q=${name}`).then(res=>{
                 return res;
             })
         } catch (err) {
