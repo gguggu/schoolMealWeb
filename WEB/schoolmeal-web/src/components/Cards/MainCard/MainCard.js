@@ -3,12 +3,14 @@ import './MainCard.scss';
 import PropTypes from 'prop-types';
 
 const MainCard = ({ mealData }) => {
+    const { date, breakfast, lunch, dinner } = mealData;
+    
     return (
         <div className="MainCard">
-            <p className="MainCard--mealDate">{mealData.date}</p>
+            <p className="MainCard--mealDate">{date}</p>
             {
                 (() => {
-                    if(!mealData.breakfast.length && !mealData.lunch.length && !mealData.dinner.length){
+                    if(!breakfast.length && !lunch.length && !dinner.length){
                         return <p className="MainCard--noMeal">이날은 급식이 없어요!</p>
                     }
                     else{
@@ -16,17 +18,17 @@ const MainCard = ({ mealData }) => {
                             <div className="MainCard--mealContent">
                                 <div className="MainCard--mealContent--mealBreakfast">
                                     <p className="MainCard--mealContent--mealBreakfast--time">아침</p>
-                                    <p className="MainCard--mealContent--mealBreakfast--contents">{mealData.breakfast}</p>
+                                    <p className="MainCard--mealContent--mealBreakfast--contents">{breakfast}</p>
                                 </div>
 
                                 <div className="MainCard--mealContent--mealLunch">
                                     <p className="MainCard--mealContent--mealBreakfast--time">점심</p>
-                                    <p className="MainCard--mealContent--mealLunch--contents">{mealData.lunch}</p>
+                                    <p className="MainCard--mealContent--mealLunch--contents">{lunch}</p>
                                 </div>
 
                                 <div className="MainCard--mealContent--mealDinner">
                                     <p className="MainCard--mealContent--mealBreakfast--time">저녁</p>
-                                    <p className="MainCard--mealContent--mealDinner--contents">{mealData.dinner}</p>
+                                    <p className="MainCard--mealContent--mealDinner--contents">{dinner}</p>
                                 </div>
                             </div>
                         )
@@ -37,8 +39,8 @@ const MainCard = ({ mealData }) => {
     );
 };
 
-// MainCard.propTypes = {
-//     mealData: PropTypes.array
-// }
+MainCard.propTypes = {
+    mealData: PropTypes.object.isRequired
+};
 
 export default MainCard;
