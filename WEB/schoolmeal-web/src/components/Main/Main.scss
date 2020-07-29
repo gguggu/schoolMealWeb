@@ -3,14 +3,6 @@ $borderColor: #F25E5E;
 $whiteColor: #F2F2F2;
 $placeHolderColor: #F25E5E7A;
 
-*{
-    padding: 0;
-    margin: 0;
-    overflow: hidden;
-    font-family: 'Do Hyeon', sans-serif;
-    user-select: none;
-}
-
 html{
     width: 100vw;
     height: 100vh;
@@ -23,10 +15,18 @@ html{
 }
 
 .mealList{
-   
-    padding: 50px;
-    height: 100%;
+    padding: 50px 50px 0 50px;
+    height: auto;
+    min-height: 1080px;
     flex-wrap: wrap;
+    position: relative;
+    &-SchoolList{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
     &--head{
         &--title{
             color: $borderColor;
@@ -83,7 +83,8 @@ html{
                     transform: translateX(-1em);
                 }
             }
-            &>p{
+            &>div{
+                color: $whiteColor;
                 border: 3px solid $whiteColor;
                 border-radius: 5px;
                 padding: 5px;
@@ -122,6 +123,21 @@ html{
                 }
             }
         }
+    }
+}
+
+.ReactModal__Content{
+    &::-webkit-scrollbar{
+        width: 5px;
+        background-color: #fafafa;
+        border-radius: 3px;
+    }
+    &::-webkit-scrollbar-thumb{
+        background-color: $borderColor;
+        border-radius: 3px;
+    }
+    &::-webkit-scrollbar-button{
+        display: none;
     }
 }
 
