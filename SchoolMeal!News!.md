@@ -15,4 +15,6 @@
 - #### JavaScript
 
 #### ※ 급식 정보는 NEIS 관련 오픈소스를 사용하여 조회했습니다.
-[오픈소스](https://github.com/5d-jh/school-menu-api, "나이스 오픈소스")
+
+[오픈소스][opensourceLink]
+[opensourceLink]: https://github.com/5d-jh/school-menu-api "나이스 오픈소스"
